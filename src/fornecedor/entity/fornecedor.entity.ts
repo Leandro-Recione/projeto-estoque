@@ -1,18 +1,17 @@
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
-import { Produto } from "../../produto/entity/produto.entity.js";
-
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { Produto } from '../../produto/entity/produto.entity.js';
 
 @Entity('fornecedor')
 export class Fornecedor {
-    @PrimaryGeneratedColumn()
-    id: number
+  @PrimaryGeneratedColumn()
+  id: number;
 
-    @Column()
-    nome: String
+  @Column()
+  nome: string;
 
-    @Column()
-    email: String
+  @Column()
+  email: string;
 
-     @OneToMany(() => Produto, (produto) => produto.fornecedor)
+  @OneToMany(() => Produto, (produto) => produto.fornecedor)
   produtos: Produto[];
 }

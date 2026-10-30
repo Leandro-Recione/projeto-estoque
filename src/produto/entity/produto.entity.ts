@@ -1,4 +1,4 @@
-import { Column, Entity, JoinColumn, ManyToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { Fornecedor } from '../../fornecedor/entity/fornecedor.entity.js';
 
 @Entity('produtos')
@@ -15,7 +15,7 @@ export class Produto {
   @Column()
   quantidade: number;
 
-   @ManyToMany(() => Fornecedor, (fornecedor) => fornecedor.produtos, {
+  @ManyToOne(() => Fornecedor, (fornecedor) => fornecedor.produtos, {
     nullable: false,
   })
   @JoinColumn({ name: 'fornecedor_id' })
